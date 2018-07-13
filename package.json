@@ -1,0 +1,60 @@
+{
+  "name": "solutions-adt-tools",
+  "version": "1.0.0",
+  "description": "Solutions ADT Tools",
+  "author": "Lionel Nguyen <huynguyen8505@gmail.com> (https://github.com/huytrongnguyen)",
+  "license": "MIT",
+  "homepage": "https://adtonline.github.io/solutions-adt-tools",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adtonline/solutions-adt-tools.git"
+  },
+  "bugs": "https://github.com/adtonline/solutions-adt-tools/issues",
+  "scripts": {
+    "postinstall": "yarn build",
+    "start": "babel-node server/index.js --presets env --content ./dist --port 3000",
+    "build": "gulp build --config ./gulp/explore.ext.config.js",
+    "serve": "gulp serve --config ./gulp/explore.ext.config.js"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ],
+    "plugins": [
+      "transform-object-rest-spread",
+      [
+        "root-import",
+        [
+          {
+            "rootPathSuffix": "src/"
+          }
+        ]
+      ]
+    ],
+    "ignore": "node_modules"
+  },
+  "dependencies": {
+    "babel-polyfill": "6.26.0"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.3",
+    "babel-plugin-root-import": "6.1.0",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "1.7.0",
+    "babelify": "8.0.0",
+    "browserify": "16.2.2",
+    "express": "4.16.3",
+    "gulp": "3.9.1",
+    "gulp-concat": "2.6.1",
+    "gulp-sass": "4.0.1",
+    "gulp-streamify": "1.0.2",
+    "gulp-uglify": "3.0.0",
+    "stringify": "5.2.0",
+    "vinyl-source-stream": "2.0.0",
+    "yarn": "1.7.0"
+  },
+  "engines": {
+    "node": "8.11.2"
+  }
+}
