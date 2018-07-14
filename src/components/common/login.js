@@ -1,6 +1,9 @@
+import './login.controller';
+
 Ext.define('MyApp.Login', {
-  extend: 'Ext.container.Container',
+  extend: 'Ext.container.Viewport',
   xtype: 'login',
+  controller: 'login',
   layout: 'center',
 
   items: [{
@@ -31,8 +34,11 @@ Ext.define('MyApp.Login', {
       name: 'remember',
     }],
 
-    buttons: [
-      { text:'Login' },
-    ],
+    buttons: [{
+      text:'Login',
+      listeners: {
+        click: 'onClickLogin',
+      }
+    }],
   }],
 });

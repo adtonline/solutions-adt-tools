@@ -1,16 +1,9 @@
 import 'babel-polyfill';
 import './components/common/common.module';
+import './components/client-profile/client-profile.module';
 
 Ext.application({
   name: 'MyApp',
-
-  mainView: 'MyApp.Login',
-
-  stores: [
-    // TODO: add global / shared stores here
-  ],
-
-  launch() {
-    // TODO - Launch the application
-  },
+  extend: 'Ext.app.Application',
+  mainView: localStorage.getItem('MyAppLoggedIn') ? 'MyApp.Viewport' : 'MyApp.Login',
 });
